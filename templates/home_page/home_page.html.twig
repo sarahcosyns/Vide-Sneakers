@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vide|Sneakers{% endblock %}
+
+{% block body %}
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="content">
+                    <h1>Vide|Sneakers</h1>
+                    <h2><em>We love sneakers.</em><br />
+                        On en a trop, mais on en veut plus !</h2>
+                    <a href="#" class="button big alt"><span>Let's Go</span></a>
+                </div>
+                <a href="./Login/login.html" class="button hidden"></a>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <div class="columns">
+
+                    <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic02.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic03.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic04.jpg')}}" alt="" /></a>
+                    </div>
+
+                    <!-- Column 2 (vertical, horizontal, vertical, horizontal) -->
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic06.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic05.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic08.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic07.jpg')}}" alt="" /></a>
+                    </div>
+
+                    <!-- Column 3 (horizontal, vertical, horizontal, vertical) -->
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic09.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic12.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic11.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic10.jpg')}}" alt="" /></a>
+                    </div>
+
+                    <!-- Column 4 (vertical, horizontal, vertical, horizontal) -->
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic13.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic14.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic15.jpg')}}" alt="" /></a>
+                    </div>
+                    <div class="image fit">
+                        <a href="Article/article.html"><img src="{{asset('images/pic16.jpg')}}" alt="" /></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <a href="#" class="info fa fa-info-circle"><span>About</span></a>
+            <div class="inner">
+                <div class="content">
+                    <h3>Rechercher par catégories :</h3>
+
+                    <!------------------------------------------------GENRE------------------------------------------->
+                    <div id="categories">
+                        <div class="categorie">
+                            <h4>GENRE :</h4>
+                            <input type="checkbox" id="homme" name="homme"><label for="homme">Homme</label>
+
+                            <input type="checkbox" id="femme" name="femme"><label for="femme">Femme</label>
+                        </div>
+
+                        <!---------------------------------------------TAILLES------------------------------------------>
+                        <div class="categorie">
+                            <h4>TAILLES :</h4>
+                            <div class="categorie-scroll">
+                                <input type="checkbox" id="35" name="35"><label for="35">35</label>
+
+                                <input type="checkbox" id="36" name="36"><label for="36">36</label>
+
+                                <input type="checkbox" id="37" name="37"><label for="37">37</label>
+
+                                <input type="checkbox" id="38" name="38"><label for="38">38</label>
+
+                                <input type="checkbox" id="39" name="39"><label for="39">39</label>
+
+                                <input type="checkbox" id="40" name="40"><label for="40">40</label>
+
+                                <input type="checkbox" id="41" name="41"><label for="41">41</label>
+
+                                <input type="checkbox" id="42" name="42"><label for="42">42</label>
+
+                                <input type="checkbox" id="43" name="43"><label for="43">43</label>
+
+                                <input type="checkbox" id="44" name="44"><label for="44">44</label>
+
+                                <input type="checkbox" id="45" name="45"><label for="45">45</label>
+                            </div>
+
+                        </div>
+                        <!---------------------------------------------COULEUR------------------------------------------>
+                        <div class="categorie">
+                            <h4>COULEUR :</h4>
+                            <div class="categorie-scroll">
+                                <input type="checkbox" id="Argent" name="Argent"><label for="Argent">Argent</label>
+
+                                <input type="checkbox" id="Beige" name="Beige"><label for="Beige">Beige</label>
+
+                                <input type="checkbox" id="Blanc" name="Blanc"><label for="Blanc">Blanc</label>
+
+                                <input type="checkbox" id="Bleu" name="Bleu"><label for="Bleu">Bleu</label>
+
+                                <input type="checkbox" id="Bordeaux" name="Bordeaux"><label for="Bordeaux">Bordeaux</label>
+
+                                <input type="checkbox" id="Gris" name="Gris"><label for="Gris">Gris</label>
+
+                                <input type="checkbox" id="Incolore" name="Incolore"><label for="Incolore">Incolore</label>
+
+                                <input type="checkbox" id="Jaune" name="Jaune"><label for="Jaune">Jaune</label>
+
+                                <input type="checkbox" id="Marron" name="Marron"><label for="Marron">Marron</label>
+
+                                <input type="checkbox" id="Multicolore" name="Multicolore"><label for="Multicolore">Multicolo</label>
+
+                                <input type="checkbox" id="Noir" name="Noir"><label for="Noir">Noir</label>
+
+                                <input type="checkbox" id="Orange" name="Orange"><label for="Orange">Orange</label>
+
+                                <input type="checkbox" id="Rose" name="Rose"><label for="Rose">Rose</label>
+
+                                <input type="checkbox" id="Rouge" name="Rouge"><label for="Rouge">Rouge</label>
+
+                                <input type="checkbox" id="Vert" name="Vert"><label for="Vert">Vert</label>
+
+                                <input type="checkbox" id="Violet" name="Violet"><label for="Violet">Violet</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <h3>Suivez-nous</h3>
+                    <ul class="icons">
+                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                    &copy; <a href="http://www.sarahcosyns.com/">Sarah Cosyns</a>
+                </div>
+            </div>
+        </footer>
+{% endblock %}
+
