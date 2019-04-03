@@ -28,7 +28,7 @@ class RegistrationFormType extends AbstractType
                 'options' => ['attr' => ['class' => 'input100',
                                             'placeholder' => 'Mot de passe']],
                 'required' => true,
-                'first_options' => ['label' => false],
+                'first_options' => ['label' => false], 
                 'second_options' => ['label' => false],
                 'constraints' => [
                     new NotBlank([

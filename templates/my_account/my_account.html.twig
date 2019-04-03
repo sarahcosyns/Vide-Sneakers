@@ -1,17 +1,61 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-{% block title %}Hello MyAccountController!{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/myaccount.css')}}">
+        <link rel="icon" type="image/png" href="{{asset('images/trail-running-shoe.ico')}}"/>
+        {% endblock %}
+       
+    </head>
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+ 
+        <div class="header">
+            <a href={{path('home_page')}}><span class="fa fa-chevron-left"></span>Retour aux articles</a>
+            <a href="{{path('page_logout')}}" class="btn">Se déconnecter</a>
+        </div>
 
-<div class="example-wrapper">
-    <h1>Bonjour {{app.user.prenom }} </h1>
-    
-    <a href="{{path('page_logout')}}" class="btn">Se déconnecter</a>
-    
-</div>
+        <section>
+            <div class="title">
+                <h1>Bienvenu sur ton compte {{ app.user.prenom }} </h1>
+            </div>
+            <div class="photo-profil">
+                <img src="{{ app.user.photo }}" alt="photo-profil" id="imgProfil">
+            </div>
+
+            <div class="ajouter-article">
+                <a href="{{path('add_article')}}" class="btn">Ajouter un article</a>
+            </div>
+
+            <div class="mesarticles">Mes articles</div>
+            
+            <div class="articles"> 
+            <div class="article">
+                <img src="">
+                <p class="nom">nom</p>
+                <p class="prix">prix €</p>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div>
+
+            <div class="article">
+                <img src="">
+                <p class="nom">nom</p>
+                <p class="prix">prix €</p>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div>
+            
+            <div class="article">
+                <img src="">
+                <p class="nom">nom</p>
+                <p class="prix">prix €</p>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        </section>
+
 {% endblock %}

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PhotosRepository")
  */
-class Photos
+class Photo
 {
     /**
      * @ORM\Id()
@@ -20,6 +20,12 @@ class Photos
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="photos")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $article;
 
     public function getId(): ?int
     {
@@ -34,6 +40,18 @@ class Photos
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }

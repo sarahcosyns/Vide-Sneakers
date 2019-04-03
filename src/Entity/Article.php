@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -60,6 +62,26 @@ class Article
      * @ORM\Column(type="date")
      */
     private $DateMiseEnLigne;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="article")
+     */
+    private $photos;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles_vendu")
+     */
+    private $vendeur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles_achete")
+     */
+    private $acheteur;
+
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -170,6 +192,61 @@ class Article
     public function setDateMiseEnLigne(\DateTimeInterface $DateMiseEnLigne): self
     {
         $this->DateMiseEnLigne = $DateMiseEnLigne;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Photo[]
+     */
+    public function getPhotos(): Collection
+    {
+        return $this->photos;
+    }
+
+    public function addPhoto(Photo $photo): self
+    {
+        if (!$this->photos->contains($photo)) {
+            $this->photos[] = $photo;
+            $photo->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photo $photo): self
+    {
+        if ($this->photos->contains($photo)) {
+            $this->photos->removeElement($photo);
+            // set the owning side to null (unless already changed)
+            if ($photo->getArticle() === $this) {
+                $photo->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getVendeur(): ?User
+    {
+        return $this->vendeur;
+    }
+
+    public function setVendeur(?User $vendeur): self
+    {
+        $this->vendeur = $vendeur;
+
+        return $this;
+    }
+
+    public function getAcheteur(): ?User
+    {
+        return $this->acheteur;
+    }
+
+    public function setAcheteur(?User $acheteur): self
+    {
+        $this->acheteur = $acheteur;
 
         return $this;
     }

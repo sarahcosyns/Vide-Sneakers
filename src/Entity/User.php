@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -54,6 +56,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Photo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="vendeur")
+     */
+    private $articles_vendu;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="acheteur")
+     */
+    private $articles_achete;
+
+    public function __construct()
+    {
+        $this->articles_vendu = new ArrayCollection();
+        $this->articles_achete = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -177,6 +195,68 @@ class User implements UserInterface
     public function setPhoto(?string $Photo): self
     {
         $this->Photo = $Photo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticlesVendu(): Collection
+    {
+        return $this->articles_vendu;
+    }
+
+    public function addArticlesVendu(Article $articlesVendu): self
+    {
+        if (!$this->articles_vendu->contains($articlesVendu)) {
+            $this->articles_vendu[] = $articlesVendu;
+            $articlesVendu->setVendeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticlesVendu(Article $articlesVendu): self
+    {
+        if ($this->articles_vendu->contains($articlesVendu)) {
+            $this->articles_vendu->removeElement($articlesVendu);
+            // set the owning side to null (unless already changed)
+            if ($articlesVendu->getVendeur() === $this) {
+                $articlesVendu->setVendeur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticlesAchete(): Collection
+    {
+        return $this->articles_achete;
+    }
+
+    public function addArticlesAchete(Article $articlesAchete): self
+    {
+        if (!$this->articles_achete->contains($articlesAchete)) {
+            $this->articles_achete[] = $articlesAchete;
+            $articlesAchete->setAcheteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticlesAchete(Article $articlesAchete): self
+    {
+        if ($this->articles_achete->contains($articlesAchete)) {
+            $this->articles_achete->removeElement($articlesAchete);
+            // set the owning side to null (unless already changed)
+            if ($articlesAchete->getAcheteur() === $this) {
+                $articlesAchete->setAcheteur(null);
+            }
+        }
 
         return $this;
     }
