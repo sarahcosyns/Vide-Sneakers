@@ -17,99 +17,73 @@
     <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-                        <span class="login100-form-title">
-                            Ajouter un article
-                        </span>
+                    {{ form_start(addArticleForm, {
+                    attr: { class:'login100-form validate-form p-l-55 p-r-55 p-t-178'} }) }}
+                    <span class="login100-form-title">Ajouter un article</span>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate="Entrez le nom de l'article">
-                            <input class="input100" type="text" name="nom" placeholder="Nom">
-                            <span class="focus-input100"></span>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.nom, {
+                        attr: {placeholder: 'Choisissez le nom', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez le genre de l'article">
-                            <select class="input100" type="text" name="genre" placeholder="Genre">
-                                <option value="" class="focus-input100">Genre</option>
-                                <option value="Homme">Homme</option>
-                                <option value="Femme">Femme</option>
-                            </select>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.genre, {
+                        attr: {class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez la taille de l'article">
-                            <select class="input100" type="text" name="taille">
-                                <option value="">Taille</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.taille, {
+                        attr: {class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
                         
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez la couleur de l'article">
-                            <select class="input100" type="text" name="couleur">
-                                <option value="">Couleur</option>
-                                <option value="Argent">Argent</option>
-                                <option value="Beige">Beige</option>
-                                <option value="Blanc">Blanc</option>
-                                <option value="Bleu">Bleu</option>
-                                <option value="Bordeaux">Bordeaux</option>
-                                <option value="Gris">Gris</option>
-                                <option value="Incolore">Incolore</option>
-                                <option value="Jaune">Jaune</option>
-                                <option value="Marron">Marron</option>
-                                <option value="Multicolo">Multicolo</option>
-                                <option value="Noir">Noir</option>
-                                <option value="Orange">Orange</option>
-                                <option value="Rose">Rose</option>
-                                <option value="Rouge">Rouge</option>
-                                <option value="Vert">Vert</option>
-                                <option value="Violet">Violet</option>
-                            </select>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.couleur, {
+                        attr: {class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez la marque de l'article">
-                            <input class="input100" type="text" name="marque" placeholder="Marque">
-                            <span class="focus-input100"></span>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.marque, {
+                        attr: {placeholder: 'Choisissez la marque', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.prix, {
+                        attr: {placeholder: 'Choisissez le prix', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.etat, {
+                        attr: {placeholder: 'Choisissez l état', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
                         
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez le prix de l'article">
-                            <input class="input100" type="number" name="prix" placeholder="Prix">
-                            <span class="focus-input100"></span>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.description, {
+                        attr: {placeholder: 'Décrivez l article', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
                         
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez l'état de l'article">
-                            <input class="input100" type="text" name="etat" placeholder="Etat">
-                            <span class="focus-input100"></span>
-                        </div>
-                        
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez la description de l'article">
-                            <input id="description" class="input100" type="text" name="description" placeholder="Description">
-                        </div>
-                        
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez la description de l'article">
-                           <label class="input100" for="file">Ajouter des photos<input type="file" id="file" name="file" multiple></label>
-                            
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        {{ form_row(addArticleForm.photo, {
+                        attr: {placeholder: 'Ajoutez une photo', class: 'input100'} }) }}
+                        <span class="focus-input100"></span>
+                    </div>
+
 <!-----------------------------------------------------BOUTON---------------------------------------------------->
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Ajouter votre article
-                            </button>
+                            <button class="btn login100-form-btn">Ajouter votre article</button>
                         </div>
 
                         <div class="flex-col-c p-t-170 p-b-40">
-                            <span class="txt1 p-b-9">
-                                @Vide | Sneakers
-                            </span>
+                            <span class="txt1 p-b-9">@Vide | Sneakers</span>
                         </div>
-                    </form>
+                    {{ form_end(addArticleForm) }}
                 </div>
             </div>
         </div>

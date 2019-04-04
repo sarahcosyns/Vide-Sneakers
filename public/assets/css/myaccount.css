@@ -35,6 +35,7 @@ body {
     display: flex;
     justify-content: space-around;
     font-size: 12pt;
+    margin-top: 30px;
 }
 
 a{
@@ -95,8 +96,8 @@ h1{
 #imgProfil {
     border: 1px solid black;
     border-radius: 50px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .ajouter-article {

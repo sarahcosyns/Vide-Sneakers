@@ -24,7 +24,7 @@
                 <h1>Bienvenu sur ton compte {{ app.user.prenom }} </h1>
             </div>
             <div class="photo-profil">
-                <img src="{{ app.user.photo }}" alt="photo-profil" id="imgProfil">
+                <img src="{#{{ app.user.photo }}#}{{asset('images/download.png')}}" alt="photo-profil" id="imgProfil">
             </div>
 
             <div class="ajouter-article">
@@ -33,29 +33,21 @@
 
             <div class="mesarticles">Mes articles</div>
             
-            <div class="articles"> 
-            <div class="article">
-                <img src="">
-                <p class="nom">nom</p>
-                <p class="prix">prix €</p>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
-
-            <div class="article">
-                <img src="">
-                <p class="nom">nom</p>
-                <p class="prix">prix €</p>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
+            <div class="articles">
             
+            {% for valeur in unArticle %}
             <div class="article">
-                <img src="">
-                <p class="nom">nom</p>
-                <p class="prix">prix €</p>
+                {#<img src="{{ valeur.photos }}">#}
+                <p> {{valeur.photos | length }}</p>
+                <p class="nom">{{ valeur.nom }} </p>
+                <p class="prix">{{ valeur.prix }} €</p>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </div>
+            {% endfor %}
         </div>
 
-        </section>
-
 {% endblock %}
+
+
+
+

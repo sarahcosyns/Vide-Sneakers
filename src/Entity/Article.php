@@ -64,7 +64,7 @@ class Article
     private $DateMiseEnLigne;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="article")
+     * @ORM\OneToMany(targetEntity="App\Entity\Photo", mappedBy="article", cascade={"persist"})
      */
     private $photos;
 

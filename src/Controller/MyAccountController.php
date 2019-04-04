@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Article;
 
 class MyAccountController extends AbstractController
 {
@@ -12,8 +13,10 @@ class MyAccountController extends AbstractController
      */
     public function index()
     {
-        return $this->render('my_account/my_account.html.twig', [
-            'controller_name' => 'MyAccountController',
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $rep = $em->getRepository(Article::class);
+        $article = $rep->findAll();
+        $vars = ['unArticle'=>$article];
+        return $this->render('my_account/my_account.html.twig', $vars);
     }
 }
