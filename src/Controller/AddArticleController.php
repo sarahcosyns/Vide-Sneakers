@@ -66,6 +66,7 @@ class AddArticleController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
+            
             return $this->render('my_account/my_account.html.twig', [
             'addArticleForm' => $formAddArticle->createView(),
         ]);        

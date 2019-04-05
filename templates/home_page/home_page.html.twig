@@ -22,7 +22,7 @@
                 <div class="columns">    
                 {% for valeur in unArticle %}
                     <div class="image fit">
-                    <a href={{path('articles_page')}}><img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}"></a>
+                    <a href={{path('articles_page', {'slug': valeur.id})}}><img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}"></a>
                     </div>
                 {% endfor %}
                 </div>
