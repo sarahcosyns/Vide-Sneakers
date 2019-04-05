@@ -6,19 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
 
-class MyAccountController extends AbstractController
+class ArticlesPageController extends AbstractController
 {
     /**
-     * @Route("/my/account", name="my_account")
+     * @Route("/articles/page", name="articles_page")
      */
-    public function index()
+    public function articles_page()
     {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository(Article::class);
-        $user = $this->getUser();
-        $articles = $user->getArticlesVendu();
+        $articles = $rep->findAll();
         $vars = ['unArticle'=>$articles];
-        return $this->render('my_account/my_account.html.twig', $vars);
+        return $this->render('articles_page/articles_page.html.twig');
     }
-    
 }

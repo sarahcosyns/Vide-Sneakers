@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/myaccount.css')}}">
         <link rel="icon" type="image/png" href="{{asset('images/trail-running-shoe.ico')}}"/>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         {% endblock %}
        
     </head>
@@ -20,28 +21,41 @@
         </div>
 
         <section>
-            <div class="title">
-                <h1>Bienvenu sur ton compte {{ app.user.prenom }} </h1>
+            <div class="type">
+                <span>Bienvenu</span>
+                <span>sur ton compte</span>
+                <span>Sarah</span>
             </div>
+            
             <div class="photo-profil">
-                <img src="{#{{ app.user.photo }}#}{{asset('images/download.png')}}" alt="photo-profil" id="imgProfil">
+                <img src="{#{{ app.user.photo }}#}{{asset('images/download.jpg')}}" alt="photo-profil" id="imgProfil">
             </div>
 
             <div class="ajouter-article">
                 <a href="{{path('add_article')}}" class="btn">Ajouter un article</a>
             </div>
 
-            <div class="mesarticles">Mes articles</div>
+            <div class="pre-title">
+                <div class="pre-title-line"></div>
+                <div class="pre-title-text">MES ARTICLES</div>
+                <div class="pre-title-line"></div>
+            </div>
             
             <div class="articles">
-            
             {% for valeur in unArticle %}
             <div class="article">
-                {#<img src="{{ valeur.photos }}">#}
-                <p> {{valeur.photos | length }}</p>
+                <img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}
+                ">
+                
+                {#<img src="{{ asset('dossierFichiers/')}}{{ valeur.photos[0].photo}}">#}
                 <p class="nom">{{ valeur.nom }} </p>
+                <p class="prix">{{ valeur.marque }}</p>
+                <p class="nom">{{ valeur.taille }}</p>
                 <p class="prix">{{ valeur.prix }} €</p>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <div class="icones">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
             </div>
             {% endfor %}
         </div>

@@ -19,64 +19,12 @@
         <!-- Main -->
         <div id="main">
             <div class="inner">
-                <div class="columns">
-
-                    <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
+                <div class="columns">    
+                {% for valeur in unArticle %}
                     <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>
+                    <a href={{path('articles_page')}}><img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}"></a>
                     </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic02.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic03.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic04.jpg')}}" alt="" /></a>
-                    </div>
-
-                    <!-- Column 2 (vertical, horizontal, vertical, horizontal) -->
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic06.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic05.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic08.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic07.jpg')}}" alt="" /></a>
-                    </div>
-
-                    <!-- Column 3 (horizontal, vertical, horizontal, vertical) -->
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic09.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic12.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic11.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic10.jpg')}}" alt="" /></a>
-                    </div>
-
-                    <!-- Column 4 (vertical, horizontal, vertical, horizontal) -->
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic13.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic14.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic15.jpg')}}" alt="" /></a>
-                    </div>
-                    <div class="image fit">
-                        <a href="Article/article.html"><img src="{{asset('images/pic16.jpg')}}" alt="" /></a>
-                    </div>
-
+                {% endfor %}
                 </div>
             </div>
         </div>
