@@ -12,7 +12,13 @@
                         On en a trop, mais on en veut plus !</h2>
                     <a href="#" class="button big alt"><span>Let's Go</span></a>
                 </div>
-                <a href="{{path('app_login')}}" class="button hidden"></a>
+                {% if is_granted("ROLE_USER") %}
+                                    <a href="{{path('my_account')}}" class="button hidden"></a>
+
+                {% else %}
+                                    <a href="{{path('app_login')}}" class="button hidden"></a>
+
+               {% endif %}
             </div>
         </header>
 

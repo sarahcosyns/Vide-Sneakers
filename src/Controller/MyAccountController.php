@@ -5,11 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MyAccountController extends AbstractController
 {
     /**
-     * @Route("/my/account", name="my_account")
+     * @Route("/user/my/account", name="my_account")
      */
     public function index()
     {

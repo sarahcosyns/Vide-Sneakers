@@ -18,11 +18,10 @@ security:
             anonymous: true
             guard:
                 authenticators:
-                    - App\Security\FormulaireLoginAuthenticator
-                    
+                    - App\Security\FormulaireLoginAuthenticator  
             logout:
                 path: /logout
-                target: /page_logout
+                target: /
         
 
             # activate different ways to authenticate
@@ -37,4 +36,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/user, roles: ROLE_USER }

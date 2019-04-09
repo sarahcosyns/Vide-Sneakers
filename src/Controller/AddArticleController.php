@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AddArticleController extends AbstractController
 {
     /**
-     * @Route("/add/article", name="add_article")
+     * @Route("/user/add/article", name="add_article")
      */
     public function addArticle(Request $request)
     {
@@ -25,8 +25,7 @@ class AddArticleController extends AbstractController
         $formAddArticle->handleRequest($request);
 
         if ($formAddArticle->isSubmitted() && $formAddArticle->isValid()) {
-            
-            // article pret sauf dateMiseEnLigne, on l'affecte ici
+                        // article pret sauf dateMiseEnLigne, on l'affecte ici
             $article->setDateMiseEnLigne (new \DateTime());
             
             // affecter l'User. l'User vendeur vient de la session
@@ -43,6 +42,7 @@ class AddArticleController extends AbstractController
             //dump ($article);
             //dump ($formAddArticle->getData());
             
+
             //dump ($request);
             //dump ($request->request->get( "add_article_form"));
             
@@ -67,9 +67,7 @@ class AddArticleController extends AbstractController
             $em->persist($article);
             $em->flush();
             
-            return $this->render('my_account/my_account.html.twig', [
-            'addArticleForm' => $formAddArticle->createView(),
-        ]);        
+            return $this->redirectToRoute('my_account');        
         }
         
         else {

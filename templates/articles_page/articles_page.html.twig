@@ -14,33 +14,32 @@
 
 {% block body %}
     <div id="preview" class="vertical">
+        <div class="header">
+            <a href={{path('home_page')}}><span class="fa fa-chevron-left"></span>Retour aux articles</a>
+        </div>
             <div class="inner">
                 <div class="image fit">
-                    <img src="images/pic04.jpg" alt="" />
-                    <img src="images/pic14.jpg" alt="" />
-                    <p>Date de mise en ligne</p>
+                    <img src="{{ asset('dossierFichiers/' ~ unArticle.photos[0].photo)}}" alt="" />
+                    <p>Date de mise en ligne : {{ unArticle.dateMiseEnLigne|date('d/m/Y') }}</p>
                 </div>
                 <div class="content">
                     <header>
-                        <h2>Nom</h2><span>|</span><h3>Prix</h3>
+                        <h2>{{ unArticle.nom }}</h2><span>|</span><h3>{{ unArticle.prix }}€</h3>
                     </header>
-                    <p class="infos_article">Genre - Marque - Taille - Couleur - Etat</p>
-                    <p>Description - Proin faucibus laoreet quam. Maecenas et ullamcorper lectus. Ut nunc velit, varius auctor semper vitae, fermentum ac ligula. Curabitur at dolor sapien. Sed nec libero at leo feugiat pharetra vitae vel felis. Pellentesque eget erat id mauris volutpat blandit. Suspendisse vulputate massa turpis, eu ultrices massa malesuada at. Sed sit amet faucibus sem.</p>
+                    <ul class="infos_article">
+                        <li>GENRE : {{ unArticle.genre }}</li>
+                        <li>MARQUE : {{ unArticle.marque }}</li>
+                        <li>TAILLE : {{ unArticle.taille }}</li>
+                        <li>COULEUR : {{ unArticle.couleur }}</li>
+                        <li>ETAT : {{ unArticle.etat }}</li>
+                    </ul>
+                    <p>{{ unArticle.description }}</p>
                     
-                    <div class="infos_vendeur">
-                        <img src="images/vendeur.png" alt="" class="image_vendeur">
-                        
+                    <div class="infos_vendeur"> 
                         <div>
-                            <h5>Nom du vendeur</h5>
-                            <a href="../MailVendeur/mail_vendeur.html"><button class="BtnMailVendeur">Envoyer un mail au vendeur</button></a>
-                        </div>
-                        
+                            <h5>Nom du vendeur : {{ unArticle.vendeur.prenom }}</h5>
+                            <a href={{path('mail_vendeur')}}><button class="BtnMailVendeur">Envoyer un mail au vendeur</button></a>
+                        </div>   
                     </div>
-                    
                 </div>
-
-            </div>
-            {#<a href="{{path('articles_page')}}" class="nav previous"><span class="fa fa-chevron-left"></span></a>
-            <a href="{{path('articles_page')}}" class="nav next"><span class="fa fa-chevron-right"></span></a>#}
-        </div>
 {% endblock %}

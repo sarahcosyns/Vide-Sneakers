@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Entity\Article;
+
 
 class SecuriteController extends AbstractController
 {
@@ -25,9 +27,9 @@ class SecuriteController extends AbstractController
     /**
     * @Route ("/page_logout", name="page_logout")
     */
-    public function logout (){
-
-        return $this->render('home_page/home_page.html.twig');
-    }
+//    public function logout (){
+//
+//        return $this->render('home_page/home_page.html.twig');
+//    }
 
 }

@@ -17,18 +17,18 @@
  
         <div class="header">
             <a href={{path('home_page')}}><span class="fa fa-chevron-left"></span>Retour aux articles</a>
-            <a href="{{path('page_logout')}}" class="btn">Se déconnecter</a>
+            <a href="{{path('logout')}}" class="btn">Se déconnecter</a>
         </div>
 
         <section>
             <div class="type">
                 <span>Bienvenu</span>
                 <span>sur ton compte</span>
-                <span>Sarah</span>
+                <span>{{ app.user.prenom }}</span>
             </div>
             
             <div class="photo-profil">
-                <img src="{#{{ app.user.photo }}#}{{asset('images/download.jpg')}}" alt="photo-profil" id="imgProfil">
+                <img src="{{asset('images/download.jpg')}}" alt="photo-profil" id="imgProfil">
             </div>
 
             <div class="ajouter-article">
