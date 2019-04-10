@@ -1,1 +1,28 @@
-Mail envoyé !
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/myaccount.css')}}">
+        <link rel="icon" type="image/png" href="{{asset('images/trail-running-shoe.ico')}}"/>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        {% endblock %}
+       
+    </head>
+
+{% block body %}
+ 
+        <div class="header">
+            <a href={{path('home_page')}}><span class="fa fa-chevron-left"></span>Retour aux articles</a>
+            <a href={{path('my_account')}}>Retour sur mon compte  <span class="fa fa-chevron-right"></span></a>
+        </div>
+        
+        <div class="type">
+                <span>Mail Envoyé</span>
+                <span>On espère que tu seras content de ton achat</span>
+                <span>Vide-Sneakers</span>
+        </div>
+{% endblock %}

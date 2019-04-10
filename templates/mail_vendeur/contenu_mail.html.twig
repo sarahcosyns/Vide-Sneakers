@@ -17,38 +17,36 @@
     <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-                        <span class="login100-form-title">
-                            Envoyer un mail au vendeur
-                        </span>
+                    {{ form_start(mailVendeurForm, {
+                            attr: { class:'login100-form validate-form p-l-55 p-r-55 p-t-178'} }) }}
+                            <span class="login100-form-title">Envoyer un mail au vendeur</span>
+                   
+                            <div class="wrap-input100 validate-input m-b-16">
+                                {{ form_row(mailVendeurForm.nom, {
+                                    attr: {placeholder: 'Nom', class: 'input100'} }) }}
+                                <span class="focus-input100"></span>
+                            </div>
+                                
+                            <div class="wrap-input100 validate-input m-b-16">
+                                {{ form_row(mailVendeurForm.adresse_mail, {
+                                    attr: {placeholder: 'Adresse mail', class: 'input100'} }) }}
+                                <span class="focus-input100"></span>
+                            </div>
 
-                        <div class="wrap-input100 validate-input m-b-16" data-validate="Entrez votre nom">
-                            <input class="input100" type="text" name="nom" placeholder="Nom">
-                            <span class="focus-input100"></span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Entrez votre email">
-                            <input class="input100" type="email" name="adresseMail" placeholder="Adresse mail">
-                            <span class="focus-input100"></span>
-                        </div>
-                        
-                        <div class="wrap-input100 validate-input m-b-16">
-                            <input id="description" class="input100" type="text" name="message" placeholder="Message">
-                        </div>
+                            <div class="wrap-input100 validate-input m-b-16">
+                                {{ form_row(mailVendeurForm.message, {
+                                    attr: {placeholder: 'Message', class: 'input100'} }) }}
+                            </div>
                         
 <!-----------------------------------------------------BOUTON---------------------------------------------------->
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Envoyer
-                            </button>
+                            <button class="login100-form-btn">Envoyer</button>
                         </div>
 
                         <div class="flex-col-c p-t-170 p-b-40">
-                            <span class="txt1 p-b-9">
-                                @Vide | Sneakers
-                            </span>
+                            <span class="txt1 p-b-9">@Vide | Sneakers</span>
                         </div>
-                    </form>
+                    {{ form_end(mailVendeurForm) }}
                 </div>
             </div>
         </div>
