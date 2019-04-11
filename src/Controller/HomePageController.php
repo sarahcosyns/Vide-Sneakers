@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class HomePageController extends AbstractController
 {
@@ -19,5 +21,32 @@ class HomePageController extends AbstractController
         $vars = ['unArticle'=>$articles];
         
         return $this->render('home_page/home_page.html.twig', $vars);
+    }
+    
+    /**
+     * @Route("/ajax/articles", name="ajax-articles")
+     */
+    public function AjaxArticles(Request $req)
+    {
+        $valeurGenre = $req->get('mesIds');
+        $valeurTaille = $req->get('mesIds');
+        $valeurcouleur = $req->get('mesIds');
+        dump($valeurGenre);
+       
+        $em = $this->getDoctrine()->getManager();
+        $rep = $em->getRepository(Article::class);
+        $articles = $rep->findBy(['Genre'=>$valeurGenre,
+                                  'Taille'=>$valeurTaille,
+                                  'Couleur'=>$valeurcouleur]);
+
+       
+        dump($articles);
+     //   die();
+        $partialView = $this->renderView("partial/partial_home_page.html.twig", [
+            'unArticle' => $articles
+        ]);
+        $arrayReponse = ['partialView' => $partialView];
+        
+     return new JsonResponse($arrayReponse);
     }
 }

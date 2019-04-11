@@ -3,79 +3,100 @@
 {% block title %}Vide|Sneakers{% endblock %}
 
 {% block body %}
-        <!-- Header -->
-        <header id="header">
-            <div class="inner">
-                <div class="content">
-                    <h1>Vide|Sneakers</h1>
-                    <h2><em>We love sneakers.</em><br />
-                        On en a trop, mais on en veut plus !</h2>
-                    <a href="#" class="button big alt"><span>Let's Go</span></a>
-                </div>
-                {% if is_granted("ROLE_USER") %}
-                                    <a href="{{path('my_account')}}" class="button hidden"></a>
-
-                {% else %}
-                                    <a href="{{path('app_login')}}" class="button hidden"></a>
-
-               {% endif %}
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <div class="content">
+                <h1>Vide|Sneakers</h1>
+                <h2><em>We love sneakers.</em><br />
+                    On en a trop, mais on en veut plus !</h2>
+                <a href="#" class="button big alt"><span>Let's Go</span></a>
             </div>
-        </header>
+            {% if is_granted("ROLE_USER") %}
+                <a href="{{path('my_account')}}" class="button hidden"></a>
 
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
-                <div class="columns">    
+            {% else %}
+                <a href="{{path('app_login')}}" class="button hidden"></a>
+
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <div class="columns">    
                 {% for valeur in unArticle %}
                     <div class="image fit">
-                    <a href={{path('articles_page', {'slug': valeur.id})}}><img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}"></a>
+                        <a href={{path('articles_page', {'slug': valeur.id})}}><img src="{{ asset('dossierFichiers/' ~ valeur.photos[0].photo)}}"></a>
                     </div>
                 {% endfor %}
-                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Footer -->
-        <footer id="footer">
-            <a href="#" class="info fa fa-info-circle"><span>About</span></a>
-            <div class="inner">
-                <div class="content">
-                    <h3>Rechercher par catégories :</h3>
+    <!-- Footer -->
+    <footer id="footer">
+        <a href="#" class="info fa fa-info-circle"><span>About</span></a>
+        <div class="inner">
+            <div class="content">
+                <h3>Rechercher par catégories :</h3>
 
-                    <!------------------------------------------------GENRE------------------------------------------->
+                <!------------------------------------------------GENRE------------------------------------------->
+                <form action="" method="post" id="articles">
                     <div id="categories">
                         <div class="categorie">
                             <h4>GENRE :</h4>
-                            <input type="checkbox" id="homme" name="homme"><label for="homme">Homme</label>
+                            {#<select class="form-control" name="genre" id="genre">
+                                <option>Genre</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </select>#}
+                            
+                            <input type="checkbox" class="genre" id="homme" name="mesIds[]" value="homme"><label for="homme">Homme</label>
 
-                            <input type="checkbox" id="femme" name="femme"><label for="femme">Femme</label>
+                            <input type="checkbox" class="genre" id="femme" name="mesIds[]" value="femme"><label  for="femme">Femme</label>
                         </div>
 
                         <!---------------------------------------------TAILLES------------------------------------------>
                         <div class="categorie">
                             <h4>TAILLES :</h4>
+                            {#<select class="form-control" name="taille" id="taille">
+                                <option>Taille</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                            </select>#}
                             <div class="categorie-scroll">
-                                <input type="checkbox" id="35" name="35"><label for="35">35</label>
+                                <input type="checkbox" id="35" name="mesIds[]" value="35"><label for="35">35</label>
 
-                                <input type="checkbox" id="36" name="36"><label for="36">36</label>
+                                <input type="checkbox" id="36" name="mesIds[]" value="36"><label for="36">36</label>
 
-                                <input type="checkbox" id="37" name="37"><label for="37">37</label>
+                                <input type="checkbox" id="37" name="mesIds[]" value="37"><label for="37">37</label>
 
-                                <input type="checkbox" id="38" name="38"><label for="38">38</label>
+                                <input type="checkbox" id="38" name="mesIds[]" value="38"><label for="38">38</label>
 
-                                <input type="checkbox" id="39" name="39"><label for="39">39</label>
+                                <input type="checkbox" id="39" name="mesIds[]" value="39"><label for="39">39</label>
 
-                                <input type="checkbox" id="40" name="40"><label for="40">40</label>
+                                <input type="checkbox" id="40" name="mesIds[]" value="40"><label for="40">40</label>
 
-                                <input type="checkbox" id="41" name="41"><label for="41">41</label>
+                                <input type="checkbox" id="41" name="mesIds[]" value="41"><label for="41">41</label>
 
-                                <input type="checkbox" id="42" name="42"><label for="42">42</label>
+                                <input type="checkbox" id="42" name="mesIds[]" value="42"><label for="42">42</label>
 
-                                <input type="checkbox" id="43" name="43"><label for="43">43</label>
+                                <input type="checkbox" id="43" name="mesIds[]" value="43"><label for="43">43</label>
 
-                                <input type="checkbox" id="44" name="44"><label for="44">44</label>
+                                <input type="checkbox" id="44" name="mesIds[]" value="44"><label for="44">44</label>
 
-                                <input type="checkbox" id="45" name="45"><label for="45">45</label>
+                                <input type="checkbox" id="45" name="mesIds[]" value="45"><label for="45">45</label>
                             </div>
 
                         </div>
@@ -83,51 +104,128 @@
                         <div class="categorie">
                             <h4>COULEUR :</h4>
                             <div class="categorie-scroll">
-                                <input type="checkbox" id="Argent" name="Argent"><label for="Argent">Argent</label>
+                                <input type="checkbox" id="Argent" name="mesIds[]" value="Argent"><label for="Argent">Argent</label>
 
-                                <input type="checkbox" id="Beige" name="Beige"><label for="Beige">Beige</label>
+                                <input type="checkbox" id="Beige" name="mesIds[]" value="Beige"><label for="Beige">Beige</label>
 
-                                <input type="checkbox" id="Blanc" name="Blanc"><label for="Blanc">Blanc</label>
+                                <input type="checkbox" id="Blanc" name="mesIds[]" value="Blanc"><label for="Blanc">Blanc</label>
 
-                                <input type="checkbox" id="Bleu" name="Bleu"><label for="Bleu">Bleu</label>
+                                <input type="checkbox" id="Bleu" name="mesIds[]" value="Bleu"><label for="Bleu">Bleu</label>
 
-                                <input type="checkbox" id="Bordeaux" name="Bordeaux"><label for="Bordeaux">Bordeaux</label>
+                                <input type="checkbox" id="Bordeaux" name="mesIds[]" value="Bordeaux"><label for="Bordeaux">Bordeaux</label>
 
-                                <input type="checkbox" id="Gris" name="Gris"><label for="Gris">Gris</label>
+                                <input type="checkbox" id="Gris" name="mesIds[]" value="Gris"><label for="Gris">Gris</label>
 
-                                <input type="checkbox" id="Incolore" name="Incolore"><label for="Incolore">Incolore</label>
+                                <input type="checkbox" id="Incolore" name="mesIds[]" value="Incolore"><label for="Incolore">Incolore</label>
 
-                                <input type="checkbox" id="Jaune" name="Jaune"><label for="Jaune">Jaune</label>
+                                <input type="checkbox" id="Jaune" name="mesIds[]" value="Jaune"><label for="Jaune">Jaune</label>
 
-                                <input type="checkbox" id="Marron" name="Marron"><label for="Marron">Marron</label>
+                                <input type="checkbox" id="Marron" name="mesIds[]" value="Marron"><label for="Marron">Marron</label>
 
-                                <input type="checkbox" id="Multicolore" name="Multicolore"><label for="Multicolore">Multicolo</label>
+                                <input type="checkbox" id="Multicolore" name="mesIds[]" value="Multicolore"><label for="Multicolore">Multicolo</label>
 
-                                <input type="checkbox" id="Noir" name="Noir"><label for="Noir">Noir</label>
+                                <input type="checkbox" id="Noir" name="mesIds[]" value="Noir"><label for="Noir">Noir</label>
 
-                                <input type="checkbox" id="Orange" name="Orange"><label for="Orange">Orange</label>
+                                <input type="checkbox" id="Orange" name="mesIds[]" value="Orange"><label for="Orange">Orange</label>
 
-                                <input type="checkbox" id="Rose" name="Rose"><label for="Rose">Rose</label>
+                                <input type="checkbox" id="Rose" name="mesIds[]" value="Rose"><label for="Rose">Rose</label>
 
-                                <input type="checkbox" id="Rouge" name="Rouge"><label for="Rouge">Rouge</label>
+                                <input type="checkbox" id="Rouge" name="mesIds[]" value="Rouge"><label for="Rouge">Rouge</label>
 
-                                <input type="checkbox" id="Vert" name="Vert"><label for="Vert">Vert</label>
+                                <input type="checkbox" id="Vert" name="mesIds[]" value="Vert"><label for="Vert">Vert</label>
 
-                                <input type="checkbox" id="Violet" name="Violet"><label for="Violet">Violet</label>
+                                <input type="checkbox" id="Violet" name="mesIds[]" value="Violet"><label for="Violet">Violet</label>
                             </div>
                         </div>
+                        <button class="btn btn-lg btn-primary" id="rechercheButton" type="submit">Chercher</button>
                     </div>
-                </div>
-
-                <div class="copyright">
-                    <h3>Suivez-nous</h3>
-                    <ul class="icons">
-                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    </ul>
-                    &copy; <a href="http://www.sarahcosyns.com/">Sarah Cosyns</a>
-                </div>
+                </form>
             </div>
-        </footer>
+
+            <div class="copyright">
+                <h3>Suivez-nous</h3>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                </ul>
+                &copy; <a href="http://www.sarahcosyns.com/">Sarah Cosyns</a>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+        var monButton = document.querySelector("#rechercheButton");
+
+        monButton.addEventListener("click", function (event) {
+            actionSort(event);
+        });
+
+        console.log(monButton);
+        console.log(selectGenre);
+
+        function actionSort(event) {
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            var formulaire = new FormData(articles);
+
+            console.log(formulaire);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var reponse = JSON.parse(xhr.responseText);
+
+                        var div = document.querySelector("#main>div");
+                        console.log('div', div);
+                        div.innerHTML = reponse.partialView;
+                    } else {
+                        console.log("erreur JS" + xhr.responseText);
+                    }
+                }
+            }
+            xhr.open('POST', '/ajax/articles');
+            xhr.send(formulaire);
+        }
+
+
+
+
+
+        {#$(document).ready(function(){
+            
+            console.log($("input:checkbox"))#}
+
+
+        {#$("input:checkbox").change (function (){
+                var isChecked = $("input:checkbox").is(":checked");
+                console.log($(this).attr('value'));
+                {#evenement.preventDefault();#}
+        {#$.ajax({
+                        method:"POST",
+                        dataType: "json",
+                        data: {
+                                strID:$("input:checkbox").attr("value"), strState:isChecked
+                        },
+                        url: "/ajax/articles",
+                        cache: false,
+                        success: function (donneesServeur){
+                                // on obtient les données sous la forme d'un array d'objets
+                                console.log (donneesServeur);
+					
+                        },
+                        error: function (data){
+                                console.log("Une erreur s'est produite");
+                        }
+        });#}
+
+        {#	});
+	
+        });#}
+    </script>
+
+{% endblock %}

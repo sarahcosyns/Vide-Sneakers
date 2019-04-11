@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Article;
+use App\Entity\Photo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -47,4 +48,13 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    public function findAllArticlesGenre($genre) {
+        $qb = $this->createQueryBuilder('a')
+                ->innerJoin('a.photos', 'p')
+                ->addSelect('p')
+                ->andWhere('a.genre = :genre')
+                ->setParameter('genre', $genre);
+        return $qb->getQuery()->getResult();
+    }
 }

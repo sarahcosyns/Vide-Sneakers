@@ -53,8 +53,8 @@
                 <p class="nom">{{ valeur.taille }}</p>
                 <p class="prix">{{ valeur.prix }} €</p>
                 <div class="icones">
-                    <a href="{{path('edit_article')}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <a href="/user/edit/article/{{valeur.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>
             {% endfor %}
