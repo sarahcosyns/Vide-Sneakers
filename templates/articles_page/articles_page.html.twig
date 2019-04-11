@@ -38,7 +38,8 @@
                     <div class="infos_vendeur"> 
                         <div>
                             <h5>Nom du vendeur : {{ unArticle.vendeur.prenom }}</h5>
-                            <a href={{path('mail_vendeur')}}><button class="BtnMailVendeur">Envoyer un mail au vendeur</button></a>
+                            <a href='{{path('mail_vendeur',{idArticle : unArticle.id })}}'><button class="BtnMailVendeur">Envoyer un mail au vendeur</button></a>
+{#                            <a href='/ergreg/ergerg/erger/{{ unArticle.id }}'><button class="BtnMailVendeur">Envoyer un mail au vendeur</button></a>#}
                         </div>   
                     </div>
                 </div>
