@@ -57,4 +57,23 @@ class ArticleRepository extends ServiceEntityRepository
                 ->setParameter('genre', $genre);
         return $qb->getQuery()->getResult();
     }
+    
+    public function findAllByCriteria($criterias = []){
+        $qb = $this->createQueryBuilder('a')
+                ->innerJoin('a.photos', 'p')
+                ->addSelect('p');
+        if($criterias['genre']){
+            $qb->andWhere('a.Genre = :genre')
+                    ->setParameter(':genre', $criterias['genre']);
+        }
+        if($criterias['taille']){
+            $qb->andWhere('a.Taille = :taille')
+                    ->setParameter(':taille', $criterias['taille']);
+        }
+        if($criterias['couleur']){
+            $qb->andWhere('a.Couleur = :couleur')
+                    ->setParameter(':couleur', $criterias['couleur']);
+        }
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -28,20 +28,30 @@ class HomePageController extends AbstractController
      */
     public function AjaxArticles(Request $req)
     {
-        $valeurGenre = $req->get('mesIds');
-        $valeurTaille = $req->get('mesIds');
-        $valeurcouleur = $req->get('mesIds');
-        dump($valeurGenre);
+        $criterias = [];
+        
+        $criterias['genre'] = $req->get('genre');
+        $criterias['taille'] = $req->get('taille');
+        $criterias['couleur'] = $req->get('couleur');
+        
+        dump($criterias);
+//        die();
+//        $valeurGenre = $req->get('genre');
+//        $valeurTaille = $req->get('taille');
+//        $valeurcouleur = $req->get('couleur');
+        
+//        dump($valeurGenre);
        
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository(Article::class);
-        $articles = $rep->findBy(['Genre'=>$valeurGenre,
-                                  'Taille'=>$valeurTaille,
-                                  'Couleur'=>$valeurcouleur]);
+        $articles = $rep->findAllByCriteria($criterias);
+//        $articles = $rep->findBy(['Genre'=>$valeurGenre,
+//                                  'Taille'=>$valeurTaille,
+//                                  'Couleur'=>$valeurcouleur]);
 
        
-        dump($articles);
-     //   die();
+//        dump($articles);
+//        die();
         $partialView = $this->renderView("partial/partial_home_page.html.twig", [
             'unArticle' => $articles
         ]);
