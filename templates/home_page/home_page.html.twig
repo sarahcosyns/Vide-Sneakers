@@ -190,41 +190,6 @@
             xhr.open('POST', '/ajax/articles');
             xhr.send(formulaire);
         }
-
-
-
-
-
-        {#$(document).ready(function(){
-            
-            console.log($("input:checkbox"))#}
-
-
-        {#$("input:checkbox").change (function (){
-                var isChecked = $("input:checkbox").is(":checked");
-                console.log($(this).attr('value'));
-                {#evenement.preventDefault();#}
-        {#$.ajax({
-                        method:"POST",
-                        dataType: "json",
-                        data: {
-                                strID:$("input:checkbox").attr("value"), strState:isChecked
-                        },
-                        url: "/ajax/articles",
-                        cache: false,
-                        success: function (donneesServeur){
-                                // on obtient les données sous la forme d'un array d'objets
-                                console.log (donneesServeur);
-					
-                        },
-                        error: function (data){
-                                console.log("Une erreur s'est produite");
-                        }
-        });#}
-
-        {#	});
-	
-        });#}
     </script>
 
 {% endblock %}
